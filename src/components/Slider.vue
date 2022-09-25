@@ -277,7 +277,9 @@ export default {
         this.handles[this.activeHandle].value = normalized;
         this.handles[this.activeHandle].position = positionPercentage * this.width;
         this.currentValue = normalized;
-        this.$refs.input.value = this.currentValue;
+        if (this.$refs.input) {
+          this.$refs.input.value = this.currentValue;
+        }
 
         if (this.gradient) {
           const color = this.getHandleColor(positionPercentage);
